@@ -1,0 +1,22 @@
+----------------DESAFIO PHP----------------
+
+----Dia 2 , Sintaxe do PHP----
+
+Tag de abertura
+<?php
+
+Variaveis possuem o $
+
+$var1
+
+receber dados 
+fgets(STDIN)
+
+mostrar dados 
+echo();
+
+use o . para concatenar
+
+ex.
+$var1 = fgets(STDN);
+echo "a entrada " . $var1 . " foi adcionada!\n";

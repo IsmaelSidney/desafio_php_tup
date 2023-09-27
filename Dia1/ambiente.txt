@@ -1,0 +1,16 @@
+----------------DESAFIO PHP----------------
+
+----Dia 1 , Ambiente de desenvolvimento----
+
+## Instalando o PHP 
+
+Para todos, use o google ou a IA(Chat GPT) se precisar de ajuda.
+
+No Windows 
+    1. Efetuar Download no site oficial, descompactar e adicionar ao PATH do windows. 
+    2. Usando o Chocolatey no powershell.
+No Linux
+    1. sudo apt install php*version
+No Mac
+    1. brew install php*version
+
