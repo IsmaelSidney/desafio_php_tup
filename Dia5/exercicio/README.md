@@ -2,6 +2,7 @@ Exercicio 1
 
 Agora que vc já conhece:
 variável, condicionais, loop, array
+```
 
 faça um programa para cadastro e listagem de profissionais
 neste programa, vc terá que solicitar o nome, cargo, valor desejado do profissional e armazenar em uma lista
@@ -13,3 +14,4 @@ nome  ,  cargo,       valor
 =================================
 Daniel,  gestor,      R$ 10500,00
 Cleyson, programador, R$ 8200,00
+```
