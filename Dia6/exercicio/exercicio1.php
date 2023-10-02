@@ -1,9 +1,26 @@
-
-
-
 <?php
 
-// Inicializa o array de produtos
+// Cores ANSI
+function vermelha($texto){
+    $cor_vermelha = "\033[31m";
+    return $cor_vermelha . $texto . "\033[0m";
+}
+function verde($texto){
+    $cor_verde = "\033[32m";
+    return $cor_verde . $texto . "\033[0m";
+}
+function amarelo($texto){
+    $cor_amarela = "\033[33m";
+    return $cor_amarela . $texto . "\033[0m";
+}
+function azul($texto){
+    $cor_azul = "\033[34m";
+    return $cor_azul . $texto . "\033[0m";
+}
+
+
+
+
 $produtos = [];
 
 // Função para cadastrar um produto
@@ -23,53 +40,53 @@ function realizarSaidaEstoque($codigo, $quantidadeSaida) {
         if ($produtos[$codigo]['quantidade'] >= $quantidadeSaida) {
             $produtos[$codigo]['quantidade'] -= $quantidadeSaida;
         } else {
-            echo "Quantidade insuficiente em estoque!\n";
+            echo vermelha("Quantidade insuficiente em estoque!\n");
         }
     } else {
-        echo "Produto não encontrado!\n";
+        echo vermelha("Produto não encontrado!\n");
     }
 }
 
 // Função para listar todos os produtos
 function listarProdutos() {
     global $produtos;
-    echo "=================================\n";
+    echo str_repeat("=",40)."\n";
     echo "id  nome    descricao  quantidade\n";
-    echo "=================================\n";
+    echo str_repeat("=",40)."\n";
     foreach ($produtos as $codigo => $produto) {
-        echo "$codigo   {$produto['nome']}   {$produto['descricao']}   {$produto['quantidade']}\n";
+        echo "$codigo   {$produto['nome']}        {$produto['descricao']}            {$produto['quantidade']}\n";
     }
-    echo "=================================\n";
+    echo str_repeat("=",40)."\n";
 }
 
 // Menu principal
 while (true) {
-    echo "Menu:\n";
-    echo "1. Cadastrar Produto\n";
-    echo "2. Realizar Saída de Estoque\n";
-    echo "3. Listar Produtos\n";
-    echo "4. Sair\n";
+    echo str_repeat("=",11)." Menu ".str_repeat("=",11)."\n";
+    echo verde("1. Cadastrar Produto\n");
+    echo amarelo("2. Realizar Saída de Estoque\n");
+    echo azul("3. Listar Produtos\n");
+    echo vermelha("4. Sair\n");
     echo "Escolha uma opção: ";
 
     $opcao = readline();
 
     switch ($opcao) {
         case 1:
-            echo "Digite o código do produto: ";
+            echo verde("Digite o código do produto: ");
             $codigo = readline();
-            echo "Digite o nome do produto: ";
+            echo verde("Digite o nome do produto: ");
             $nome = readline();
-            echo "Digite a descrição do produto: ";
+            echo verde("Digite a descrição do produto: ");
             $descricao = readline();
-            echo "Digite a quantidade em estoque: ";
+            echo verde("Digite a quantidade em estoque: ");
             $quantidade = readline();
             cadastrarProduto($codigo, $nome, $descricao, $quantidade);
-            echo "Produto cadastrado com sucesso!\n";
+            echo verde("Produto cadastrado com sucesso!\n");
             break;
         case 2:
-            echo "Digite o código do produto: ";
+            echo amarelo("Digite o código do produto: ");
             $codigo = readline();
-            echo "Digite a quantidade de saída: ";
+            echo amarelo("Digite a quantidade de saída: ");
             $quantidadeSaida = readline();
             realizarSaidaEstoque($codigo, $quantidadeSaida);
             break;
@@ -77,10 +94,10 @@ while (true) {
             listarProdutos();
             break;
         case 4:
-            echo "Saindo do programa...\n";
+            echo azul("Saindo do programa...\n");
             exit;
         default:
-            echo "Opção inválida!\n";
+            echo vermelha("Opção inválida!\n");
     }
 }
 
